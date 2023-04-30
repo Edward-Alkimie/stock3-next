@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 const finnhub = require('finnhub');
 
 const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-api_key.apiKey = process.env.NEXT_NEXT_PUBLIC_FINNHUB_KEY // Replace this
+api_key.apiKey = "cg2mgb1r01qq9k49eik0cg2mgb1r01qq9k49eikg" // Replace this
 const finnhubClient = new finnhub.DefaultApi()
 
 export default function handler(
@@ -13,7 +13,8 @@ export default function handler(
         if (error)(
             res.status(200).json(error)
         )
-        console.log(api_key.apiKey)
+        
+        // console.log(api_key.apiKey)
         res.status(200).json(data)
     })
 
