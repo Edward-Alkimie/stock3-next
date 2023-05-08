@@ -45,7 +45,7 @@ check docker container id
 docker ps -a
 
 run following command to login the image with docker 
-docker exec -it <container id> bash
+docker exec -it containerId bash
 
 check version
 postgres --version 
@@ -53,7 +53,23 @@ postgres --version
 login in user
 psql -U postgres
 
-after update schema in the schema.prisma run 
-npx prisma migrate dev
+postgres command
+https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546
 
+
+after update schema in the schema.prisma run 
+npx prisma migrate dev 
+or 
+npx prisma migrate diff
+
+to migrate the prisma migrations run 
+npx prisma migrate dev --name init
+or 
+npx prisma db push
+
+connect to the database
+\c postgres-db
+
+show list of relationship
+\dt 
 

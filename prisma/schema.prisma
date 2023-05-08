@@ -10,10 +10,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Chart {
+model chart {
   id  Int @id @default(autoincrement())
   createdAt DateTime @default(now())
-  username  String @unique
+  username  String
   graphNumber Int
   graphLine String
   graphLineColor  String
