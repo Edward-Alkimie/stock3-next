@@ -13,7 +13,6 @@ export default function handler(
         if (error)(
             res.status(200).json(error)
         )
-        
         // console.log(api_key.apiKey)
         res.status(200).json(data)
     })
