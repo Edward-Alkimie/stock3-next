@@ -11,10 +11,10 @@ datasource db {
 }
 
 model Chart {
-  id Int @id @default(autoincrement())
+  id  Int @id @default(autoincrement())
   createdAt DateTime @default(now())
-  username String @unique
+  username  String @unique
   graphNumber Int
   graphLine String
-  graphLineColor String
+  graphLineColor  String
 }

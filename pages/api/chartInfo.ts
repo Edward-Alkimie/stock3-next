@@ -8,17 +8,15 @@ export default async function handler(
     const { username, graphNumber, graphLine, graphLineColor } = req.query;
 
     try {
+        console.log(req.body)
         const newChart = await prisma.chart.create({
             data: {
-                username: username,
-                graphNumber: graphNumber,
-                graphLine: graphLine,
-                graphLineColor: graphLineColor,
+                ...req.body,
             },
         });
 
-        res.status(201).json({ chart: newChart });
+        return res.status(201).json({ chart: newChart });
     } catch (error) {
-        res.status(400).json({ errorCode: error});
+        return res.status(400).json({ errorCode: error});
     }
 }
