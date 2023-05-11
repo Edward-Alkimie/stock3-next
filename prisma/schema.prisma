@@ -14,7 +14,8 @@ model chart {
   id  Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   username  String
-  graphNumber Int
-  graphLine String
-  graphLineColor  String
+  chartNumber Int
+  chartSeries String
+  ratioLineName String
+  ratioLineColor  String
 }

@@ -8,17 +8,13 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    const { username, graphNumber, graphLine, graphLineColor } = req.body;
+    const { username, chartNumber,chartSeries, ratioLineName,ratioLineColor } = req.body;
 
     if (req.method === "POST"){
         try {
-            console.log(req.body.username)
             const newChart = await prisma.chart.create({
                 data: {
-                    username: username,
-                    graphNumber: graphNumber,
-                    graphLine: graphLine,
-                    graphLineColor: graphLineColor
+                    ...req.body
                 },
             });
             res.status(201).json({ chart: newChart });
