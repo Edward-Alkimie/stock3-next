@@ -9,9 +9,10 @@ async function load(){
     const kevin = await prisma.chart.create({
         data: {
             username: 'kevin1',
-            graphNumber: 1,
-            graphLine: 'bookValue',
-            graphLineColor: 'black',
+            chartNumber: 1,
+            chartSeries: "annual",
+            ratioLineName: "bookValue",
+            ratioLineColor: "black"
         },
     })
     console.log({kevin})

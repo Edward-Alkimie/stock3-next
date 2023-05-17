@@ -18,19 +18,9 @@ export default async function handler(
     })
     console.log(charts)
 
-    const products = [
-        { name: 'apples', category: 'fruits' },
-        { name: 'oranges', category: 'fruits' },
-        { name: 'potatoes', category: 'vegetables' }
-      ];
+    const modifiedCharts = groupByKey(charts,"chartNumber")
 
-    // const groupByCategory = groupBy products.groupBy(product => {
-    //     return product.category;
-    // });
+    console.log(modifiedCharts)
 
-    const modifiyCharts = groupByKey(charts,"chartNumber")
-
-    console.log(modifiyCharts)
-
-    res.status(200).json({modifiyCharts});
+    res.status(200).json({modifiedCharts});
 }

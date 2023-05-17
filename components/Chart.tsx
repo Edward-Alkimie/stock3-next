@@ -1,4 +1,5 @@
 import React from 'react';
+import { fetchStockRatio } from './Data';
 import {useState, useEffect} from "react"
 import {
   Chart as ChartJS,
@@ -12,7 +13,6 @@ import {
 } from 'chart.js';
 
 import { Line } from 'react-chartjs-2';
-
 import {faker} from '@faker-js/faker';
 
 ChartJS.register(
@@ -24,6 +24,8 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+fetchStockRatio()
 
 export const options = {
   responsive: true,
