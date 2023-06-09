@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, createContext } from 'react';
 
-function DataFetch() {
+const ChartDataContext = React.createContext();
+
+function DataFetch({children}) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<errorType | null>(null);
 
-  interface errorType {
-    message: string;
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+    useEffect(() => {
+        fetchData();
+    }, []);
 
   const fetchData = async () => {
     try {
@@ -36,16 +35,18 @@ function DataFetch() {
   }
 
   return (
-    <div>
-      {data["1"][0].chartSeries}
-      {data["1"][0].ratioLineName}
-      {data["1"][0].ratioLineColor}
-    </div>
+    <ChartDataContext.Provider value={data}>
+      {children}
+    </ChartDataContext.Provider >
+
   );
 }
 
 export default DataFetch;
 
+/* {data["1"][0].chartSeries}
+      {data["1"][0].ratioLineName}
+      {data["1"][0].ratioLineColor} */
 
 // export default function FetchStockRatio(){
 //     const userChartLayout = "http://localhost:3001/api/chartInfo/read"
