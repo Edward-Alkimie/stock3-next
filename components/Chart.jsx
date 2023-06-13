@@ -1,5 +1,4 @@
 import React from 'react';
-import  FetchStockRatio  from './Data';
 import {useState, useEffect} from "react"
 import {
   Chart as ChartJS,
@@ -31,7 +30,7 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top' as const,
+      position: 'top',
     },
     title: {
       display: true,
